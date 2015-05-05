@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<App uuid="23042fc4-baab-4179-9831-6124810ac4">
+   <Name>Google News Box</Name>
+   <Author>Incomedia</Author>
+   <Version>3</Version>
+   <Category>Google</Category>
+   <Description l10n-id="description">Add the News element to your site, and show the latest Google News headlines on sections you choose.</Description>
+   <ShowPreview>True</ShowPreview>
+   <Parameters>
+      <Tab>
+         <Fields>
+            <Field id="format" type="dropdown">
+               <Options>
+                  <Option l10n-id="leaderboard728x90" value="leaderboard">Leaderboard (728x90)</Option>
+                  <Option l10n-id="mediumRectangle300x250" value="mediumrectangle">Medium Rectangle (300x250)</Option>
+               </Options>
+               <DefaultValue>leaderboard</DefaultValue>
+               <Label l10n-id="size">Size</Label>
+               <UpdatesPreview>true</UpdatesPreview>
+            </Field>
+            <!-- <Field id="size" type="dropdown">
+               <Options>
+                  <Option l10n-id="large8Results" value="large">Large (8 Results)</Option>
+                  <Option l10n-id="small4Results" value="small">Small (4 Results)</Option>
+               </Options>
+               <DefaultValue>large</DefaultValue>
+               <Label l10n-id="resultSetSize">Result size</Label>
+               <UpdatesPreview>true</UpdatesPreview>
+            </Field> -->
+            <Field id="storyType" type="dropdown">
+               <DefaultValue>topStoriesNews</DefaultValue>
+               <Label l10n-id="storyType">Type</Label>
+               <UpdatesPreview>true</UpdatesPreview>
+               <Options>
+				   <Option value="h" l10n-id="topStoriesNews">Most interesting</Option>
+				   <Option value="w" l10n-id="worldNews">World News</Option>
+				   <Option value="b" l10n-id="businessNews">Business News</Option>
+				   <Option value="p" l10n-id="politicsNews">Politics News</Option>
+				   <Option value="n" l10n-id="nationNews">Nation News</Option>
+				   <Option value="e" l10n-id="entertainmentNews">Entertainment News</Option>
+				   <Option value="t" l10n-id="technologyNews">Technology News</Option>
+				   <Option value="s" l10n-id="sportsNews">Sports News</Option>
+				   <Option value="m" l10n-id="healthNews">Health News</Option>
+				</Options>
+            </Field>
+            <Field id="language" type="dropdown">
+               <Label l10n-id="language">Website language:</Label>
+               <UpdatesPreview>true</UpdatesPreview>
+               <DefaultValue>auto</DefaultValue>
+               <Options>
+                  <Option l10n-id="auto" value="_auto_">detectLanguage</Option>
+                  <Option l10n-id="arabic" value="ar">arabic</Option>
+                  <Option l10n-id="bulgarian" value="bg">bulgarian</Option>
+                  <Option l10n-id="catalan" value="ca">catalan</Option>
+                  <Option l10n-id="chineseSimplified" value="zh-CN">chinese Simplified</Option>
+                  <Option l10n-id="chineseTraditional" value="zh-TW">chinese Traditional</Option>
+                  <Option l10n-id="croatian" value="hr">croatian</Option>
+                  <Option l10n-id="czech" value="cs">czech</Option>
+                  <Option l10n-id="danish" value="da">danish</Option>
+                  <Option l10n-id="dutch" value="nl">dutch</Option>
+                  <Option l10n-id="english" value="en">english</Option>
+                  <Option l10n-id="filipino" value="tl">filipino</Option>
+                  <Option l10n-id="finnish" value="fi">finnish</Option>
+                  <Option l10n-id="french" value="fr">french</Option>
+                  <Option l10n-id="german" value="de">german</Option>
+                  <Option l10n-id="greek" value="el">greek</Option>
+                  <Option l10n-id="hebrew" value="iw">hebrew</Option>
+                  <Option l10n-id="hindi" value="hi">hindi</Option>
+                  <Option l10n-id="hungarian" value="hu">hungarian</Option>
+                  <Option l10n-id="indonesian" value="id">indonesian</Option>
+                  <Option l10n-id="italian" value="it">italianitalian</Option>
+                  <Option l10n-id="japanese" value="ja">japanese</Option>
+                  <Option l10n-id="korean" value="ko">korean</Option>
+                  <Option l10n-id="latvian" value="lv">latvian</Option>
+                  <Option l10n-id="lithuanian" value="lt">lithuanian</Option>
+                  <Option l10n-id="norwegian" value="no">norwegian</Option>
+                  <Option l10n-id="polish" value="pl">polish</Option>
+                  <Option l10n-id="portuguese" value="pt">portuguese</Option>
+                  <Option l10n-id="romanian" value="ro">romanian</Option>
+                  <Option l10n-id="russian" value="ru">russian</Option>
+                  <Option l10n-id="serbian" value="sr">serbian</Option>
+                  <Option l10n-id="slovak" value="sk">slovak</Option>
+                  <Option l10n-id="slovenian" value="sl">slovenian</Option>
+                  <Option l10n-id="spanish" value="es">spanish</Option>
+                  <Option l10n-id="swedish" value="sv">swedish</Option>
+                  <Option l10n-id="thai" value="th">Thai</Option>
+                  <Option l10n-id="turkish" value="tr">Turkish</Option>
+                  <Option l10n-id="ukrainian" value="uk">ukrainian</Option>
+                  <Option l10n-id="vietnamese" value="vi">vietnamese</Option>
+               </Options>
+            </Field>
+         </Fields>
+         <ShowPreview>True</ShowPreview>
+      </Tab>
+	</Parameters>
+	<Output><![CDATA[<?wsx5
+		var size = parameters.format.value == "leaderboard" ? "width:728px;height:90px;" : "width:300px;height:250px;";
+		var format = parameters.format.value == "leaderboard" ? "728x90" : "300x250";
+		document.write("<iframe frameborder=0 marginwidth=0 marginheight=0 border=0 style=\"border:0;margin:0;" + size + "\" src=\"http://www.google.com/uds/modules/elements/newsshow/iframe.html?format=" + format + "&topic=" + parameters.storyType.value + "&hl=" + parameters.language.value + "\"></iframe>");
+	?>]]></Output>
+</App>
